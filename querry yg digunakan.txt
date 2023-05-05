@@ -1,0 +1,15 @@
+select * from  classicmodels.employees order by employeeNumber asc ;
+select * from  classicmodels.employees order by employeeNumber DESC ;
+select firstName, lastName, email, jobTitle  from  classicmodels.employees order by employeeNumber asc ;
+select checkNumber, paymentDate, amount from  classicmodels.payments ORDER by amount;
+select * from  classicmodels.employees where jobTitle like 'President%' order by employeeNumber DESC ;
+select * from  classicmodels.employees where employeeNumber <> 1600 order by employeeNumber asc ;
+select * from  classicmodels.employees where email in ('dmurphy@classicmodelcars.com','mpatterso@classicmodelcars.com')  order by employeeNumber asc ;
+select a.country, a.customerName, a.city, a.postalCode, b.checkNumber  from classicmodels.customers a inner join classicmodels.payments b on a.customerNumber  = b.customerNumber order by a.country ;
+select a.country, a.customerName, a.city, a.postalCode, b.checkNumber  from classicmodels.customers a inner join classicmodels.payments b on a.customerNumber  = b.customerNumber where a.postalCode in  ('3004','3004','3004','3004','2060','2060','2060','2060') order by a.postalCode asc;
+select avg(employeeNumber) from  classicmodels.employees where email in ('dmurphy@classicmodelcars.com','mpatterso@classicmodelcars.com')  order by employeeNumber asc ;
+select count(a.country)  from classicmodels.customers a inner join classicmodels.payments b on a.customerNumber  = b.customerNumber;
+CREATE INDEX country ON classicmodels.offices  (Country, postalCode);
+update classicmodels.employees  set jobTitle = 'President America' where email = 'dmurphy@classicmodelcars.com' and extension = 'x5800';
+INSERT INTO classicmodels.Customers (CustomerName, contactFirstName, AddressLine1, City, PostalCode, Country, customerNumber,contactLastName,phone)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway', '1232323232','aljsdalsd','232323223');
